@@ -9,31 +9,21 @@
 #include <QWidget>
 #include <QMenu>
 #include <QAction>
-class line : public QLineF
+class line : public QObject, public QGraphicsItem
 {
+    Q_OBJECT
+    Q_INTERFACES(QGraphicsItem)
 public:
     line();
-        float x1;
-        float y1;
-        float x2;
-        float y2;
+    QRectF boundingRect() const;
+    void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+
+
+    float x[10];
+    float y[10];
+    int segments = 0;
+protected:
+//    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // LINE_H
-
-
-
-
-
-//class unit : public QObject, public QGraphicsItem
-//{
-//    Q_OBJECT
-//    Q_INTERFACES(QGraphicsItem)
-
-//signals:
-//    void delete_this_item(unit *item);
-
-//protected:
-//    // overriding mouse events
-//    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-//    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);

@@ -13,17 +13,20 @@ class graphicsscene : public QGraphicsScene
     Q_OBJECT
 public:
     graphicsscene(QObject *parent);
-    QList<QLineF*> alllines;
+    QList<line*> alllines;
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent);
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *mouseEvent);
 private:
-     QGraphicsLineItem *myline;
-     QGraphicsLineItem *turnline;
+     line *turnline;
+     line *segline;
+     line *segline2;
      float slope;
      bool pressed = false;
+     bool same_line = false;
 };
 
 #endif // GRAPHICSSCENE_H

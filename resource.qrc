@@ -10,6 +10,7 @@
         <file>Icons/plus-symbol.png</file>
         <file>Icons/controlpad.png</file>
         <file>Icons/pencil_cursor.png</file>
+        <file>Icons/cursor.png</file>
     </qresource>
     <qresource prefix="/actions">
         <file>Icons/save_ai.png</file>

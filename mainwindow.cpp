@@ -244,15 +244,14 @@ void MainWindow::mode_label(bool bChecked){
         ui->view->setScene(linescene);
         linemode = true;
         ui->mode_label->setText("CUSTOMIZED");
-        QPixmap *e = new QPixmap(":/MainWindow/Icons/Icons/pencil_cursor.png");
+        QPixmap *e = new QPixmap(":/MainWindow/Icons/Icons/cursor.png");
         QCursor pencil = QCursor(*e, -10, -10);
         ui->view->setCursor(pencil);
-
     }
     else{
-        for(QLineF *line : linescene->alllines){
-            qDebug() << line->x1() << line->y1() << line->x2() <<line->y2();
-            mainscene->addLine(line->x1(), line->y1(), line->x2(), line->y2(), graypen);
+        for(line *turnline : linescene->alllines){
+//            qDebug() << turnline->x[0] << turnline->y[0] << turnline->x[1] << turnline->y[1];
+//            mainscene->addLine(line->x1(), line->y1(), line->x2(), line->y2(), graypen);
         }
         qDebug() << "line size : "<< linescene->alllines.size();
         ui->view->setScene(mainscene);
